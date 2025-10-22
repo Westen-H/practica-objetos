@@ -66,23 +66,23 @@
     // Enunciado:
         // Crea un array llamado estudiantes que contenga tres objetos. Cada objeto debe representar un estudiante con las propiedades: nombre, edad, y notaFinal. Luego, recorre el array e imprime el nombre y la nota final de cada estudiante.
 
-        const estudiantes = {
-            alumno1: {
+        const estudiantes = [
+            {
                 nombre: "Jhon_Doe",
                 edad: 17,
                 notaFinal: 7
             },
-            alumno2: {
+            {
                 nombre: "Mike",
                 edad: 15 ,
                 notaFinal: 8
             },
-            alumno3: {
+            {
                 nombre: "Jane_Doe",
                 edad: 19,
                 notaFinal: 8
             }
-        }
+        ]
 
         function imprimirNota(estudianteArray){
             for (const clave of estudianteArray) {
@@ -90,7 +90,6 @@
             }
         }
  
-
         imprimirNota(estudiantes)
 
 //#endregion
@@ -102,10 +101,15 @@
     // Enunciado:
         // Crea un objeto persona con las propiedades nombre, anioNacimiento, y un método llamado calcularEdad que devuelva la edad actual de la persona basado en el año de nacimiento.
 
-        const personna = {
+        const person = {
             nombre: "Jane",
-            anioNacimiento: 1978
+            anioNacimiento: 1978,
+            calcularEdad(añoActual) {
+                const edad = añoActual -this.anioNacimiento;
+                return `${this.nombre} tiene ${edad} años`
+            }
         }
+        console.log(person.calcularEdad(2025))
 
 //#endregion
 
