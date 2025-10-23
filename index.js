@@ -53,7 +53,7 @@
             autor: "Gabriel Garcia Marquez",
             anioPublicacion: 1967,
             resumen () {
-                return `El libro '${this.titulo}' fue escrito por ${this.autor} en ${this.anioPublicacion}.`;
+                return `El libro '${libro.titulo}' fue escrito por ${libro.autor} en ${libro.anioPublicacion}.`;
             }
         }
         console.log(libro.resumen());
@@ -83,7 +83,7 @@
                 notaFinal: 8
             }
         ]
-
+        // es maás optimo usas forEach, para mayor velocidad
         function imprimirNota(estudianteArray){
             for (const clave of estudianteArray) {
                 console.log(`${clave.nombre}: Nota final =  ${clave.notaFinal}`) 
@@ -125,17 +125,17 @@
             modelo: "ateca",
             anio: 2023,
             velocidadActual: 50,
-            acelerar() {
-                    this.velocidadActual = this.velocidadActual + 10
-                    console.log(`Velocidad actual: ${this.velocidadActual}`);
+            acelerar: function() {
+                    coche.velocidadActual = coche.velocidadActual + 10
+                    console.log(`Velocidad actual: ${coche.velocidadActual}`);
             },
-            frenar(){
+            frenar: function(){
                 let disminuirVelocidad = 10;
-                if (this.velocidadActual <= disminuirVelocidad) {
+                if (coche.velocidadActual <= disminuirVelocidad) {
                     return console.log(`EL coche esta detenido`)
                 } else {
-                    this.velocidadActual = this.velocidadActual - 10;
-                    console.log(`Velocidad actual: ${this.velocidadActual}`);
+                    coche.velocidadActual = coche.velocidadActual - 10;
+                    console.log(`Velocidad actual: ${coche.velocidadActual}`);
                 }
             }
         }
@@ -215,11 +215,11 @@
         const cuentaBancaria = {
             titular: "Jhon_Doe",
             saldo: 400,
-            depositar(cantidad) {   
+            depositar: function(cantidad) {   
                 this.saldo = this.saldo + cantidad;
                 return console.log(`Depósito realizado con éxito. Nuevo saldo: ${this.saldo}`);
             },
-            retirar(cantidad) {
+            retirar: function(cantidad) {
                 if(this.saldo < cantidad) {
                     return console.log(`No tiene saldo suficinte para realizar esta operación`)
                 } else {
